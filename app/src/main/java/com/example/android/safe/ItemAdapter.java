@@ -7,12 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CursorAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import com.example.android.safe.data.SafeContract.ItemEntry;
 
-public class ItemAdapter extends CursorAdapter {
-
+public class ItemAdapter extends CursorAdapter //implements Filterable
+{
 
     public ItemAdapter(Context context, Cursor c) {
         super(context, c, 0 /* flags */);
@@ -35,4 +37,10 @@ public class ItemAdapter extends CursorAdapter {
         textView.setText(Name);
 
     }
+
+//    @Override
+//    public Filter getFilter() {
+//        return super.getFilter();
+//    }
+
 }

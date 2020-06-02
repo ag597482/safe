@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Safe</string>
-    <string name="mode">Dark Mode</string>
+
+    <string name="mode">Light Mode</string>
 </resources>

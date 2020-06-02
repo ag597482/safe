@@ -13,6 +13,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.NavUtils;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -109,14 +110,16 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(final Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_menu, menu);
         MenuItem menuItem =menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) menuItem.getActionView();
         searchView.setQueryHint("Search...");
-
+        final MenuItem dot=menu.findItem(R.id.dark);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+
             @Override
             public boolean onQueryTextSubmit(String query) {
                 return false;
@@ -124,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
             @Override
             public boolean onQueryTextChange(String newText) {
+
                 itemAdapter.getFilter().filter(newText);
                 return true;
             }
@@ -144,6 +148,19 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 return true;
             // Respond to a click on the "Delete" menu option
             case R.id.dark:
+                if(item.getTitle().toString().equals("Dark Mode")) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    finish();
+                }
+                else
+                {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    finish();
+
+                }
+
                 return true;
             // Respond to a click on the "Up" arrow button in the app bar
 //            case android.R.id.home:

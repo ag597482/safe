@@ -5,19 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_margin="10dp"
+    android:background="@color/backg"
+    android:padding="10dp"
     tools:context=".ItemEntrys">
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:hintTextColor="#FF0000"
+        android:textColorHint="@color/text"
+        app:hintTextColor="@color/text"
+
         android:layout_margin="8dp">
     <EditText
         android:id="@+id/acc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:textColor="@color/text"
         android:textSize="20sp"
+        android:textColorHint="@color/text"
         android:textStyle="bold"
         android:hint="Account"/>
 
@@ -26,12 +30,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:hintTextColor="#00FF00"
+        android:textColorHint="@color/text"
         android:layout_margin="8dp">
     <EditText
     android:id="@+id/id"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 
+        android:textColorHint="@color/text"
+        android:textColor="@color/text"
     android:textSize="20sp"
     android:hint="Username"/>
 
@@ -42,6 +49,8 @@
      android:layout_height="wrap_content"
      app:passwordToggleEnabled="true"
      android:layout_margin="8dp"
+     app:passwordToggleTint="@color/text"
+     android:textColorHint="@color/text"
      app:hintTextColor="#0000FF"
      >
      <EditText
@@ -49,6 +58,9 @@
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:hint="Password"
+
+         android:textColorHint="@color/text"
+         android:textColor="@color/text"
          android:inputType="textPassword"/>
  </com.google.android.material.textfield.TextInputLayout>
 
